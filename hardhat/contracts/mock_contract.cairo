@@ -1,6 +1,6 @@
 # Declare this file as a StarkNet contract.
 %lang starknet
-
+# neoscript@gmail.com
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 
 @storage_var
@@ -29,10 +29,10 @@ func fill_mapping{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_
 
     # This could be useful for debugging...
     let val = [array]
-    %{
-        print(f"Still {ids.array_len} values to save...") 
-        print(f"Saving {ids.val} to the storage...")
-    %}
+    #%{
+    #    print(f"Still {ids.array_len} values to save...") 
+    #    print(f"Saving {ids.val} to the storage...")
+    #%}
     mapping.write(array_len, [array])
     fill_mapping(array_len - 1, array + 1)
     return ()
@@ -54,8 +54,7 @@ func product_mapping_internal{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, 
     len : felt
 ) -> (res : felt):
     if len == 0:
-        let (res) = mapping.read(len)
-        return (res)
+        return (1)
     end
     let (temp) = product_mapping_internal(len - 1)
     let (mapping_val) = mapping.read(len)
