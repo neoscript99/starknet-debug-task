@@ -7,3 +7,4 @@ __pycache__
 .build/
 mock_logs.txt
 array_logs.txt
+.pytest_cache

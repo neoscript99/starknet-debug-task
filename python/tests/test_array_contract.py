@@ -10,6 +10,7 @@ from starkware.starknet.compiler.compile import compile_starknet_files
 CONTRACT_FILE = os.path.join("contracts", "array_contract.cairo")
 PRODUCT_ARRAY = [(x, x + 1) for x in range(1, 6, 2)]
 
+print(reduce(lambda x, y: x * y, list(sum(PRODUCT_ARRAY, ()))))
 
 class CairoContractTest(TestCase):
     @classmethod
